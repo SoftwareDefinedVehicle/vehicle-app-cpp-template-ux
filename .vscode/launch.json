@@ -8,6 +8,7 @@
             "name": "VehicleApp - Debug (Native)",
             "type": "cppdbg",
             "request": "launch",
+            "preLaunchTask": "Build app",
             "program": "${workspaceFolder}/build/bin/app",
             "args": [ ],
             "stopAtEntry": false,

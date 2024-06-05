@@ -27,20 +27,19 @@
 namespace example {
 
 /**
- * @brief Sample skeleton vehicle app.
- * @details The skeleton subscribes to a getSpeed MQTT topic
- *      to listen for incoming requests to get
- *      the current vehicle speed and publishes it to
- *      a response topic.
+ * @brief Sample SeatAdjuster vehicle app.
+ * @details The SeatAdjuster subscribes to a setPosition MQTT topic
+ *      to listen for incoming requests to set the seat position and
+ *      publishes it to a response topic.
  *
  *      It also subcribes to the VehicleDataBroker
  *      directly for updates of the
- *      Vehicle.Speed signal and publishes this
+ *      driverseat position signal and publishes this
  *      information via another specific MQTT topic
  */
-class SampleApp : public velocitas::VehicleApp {
+class SeatAdjusterApp : public velocitas::VehicleApp {
 public:
-    SampleApp();
+    SeatAdjusterApp();
 
     /**
      * @brief Run when the vehicle app starts
@@ -49,18 +48,18 @@ public:
     void onStart() override;
 
     /**
-     * @brief Handle speed changed events from the VDB.
-     *
-     * @param dataPoints  The affected data points.
-     */
-    void onSpeedChanged(const velocitas::DataPointReply& reply);
-
-    /**
      * @brief Handle set position request from PubSub topic
      *
      * @param data  The JSON string received from PubSub topic.
      */
-    void onGetSpeedRequestReceived(const std::string& data);
+    void onSetPositionRequestReceived(const std::string& data);
+
+    /**
+     * @brief Handle seat movement events from the VDB.
+     *
+     * @param dataPoints  The affected data points.
+     */
+    void onSeatPositionChanged(const velocitas::DataPointReply& dataPoints);
 
     /**
      * @brief Handle errors which occurred during async invocation.
@@ -68,6 +67,8 @@ public:
      * @param status  The status which contains the error.
      */
     void onError(const velocitas::Status& status);
+    void onErrorDatapoint(const velocitas::Status& status);
+    void onErrorTopic(const velocitas::Status& status);
 
 private:
     vehicle::Vehicle Vehicle;

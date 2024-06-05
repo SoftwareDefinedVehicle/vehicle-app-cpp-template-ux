@@ -14,13 +14,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include "SampleApp.h"
+#include "SeatAdjusterApp.h"
 #include "sdk/Logger.h"
 
 #include <csignal>
 #include <memory>
 
-std::unique_ptr<example::SampleApp> myApp;
+std::unique_ptr<example::SeatAdjusterApp> myApp;
 
 void signal_handler(int sig) {
     velocitas::logger().info("App terminated due to: Signal {}", sig);
@@ -30,7 +30,7 @@ void signal_handler(int sig) {
 int main(int argc, char** argv) {
     signal(SIGINT, signal_handler);
 
-    myApp = std::make_unique<example::SampleApp>();
+    myApp = std::make_unique<example::SeatAdjusterApp>();
     try {
         myApp->run();
     } catch (const std::exception& e) {

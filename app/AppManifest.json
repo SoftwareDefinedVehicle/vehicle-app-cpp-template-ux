@@ -1,6 +1,6 @@
 {
     "manifestVersion": "v3",
-    "name": "SampleApp",
+    "name": "SeatAdjusterApp",
     "interfaces": [
         {
             "type": "vehicle-signal-interface",
@@ -21,10 +21,10 @@
         {
             "type": "pubsub",
             "config": {
-                "reads": [ "sampleapp/getSpeed" ],
+                "reads": [ "seatadjuster/setPosition/request" ],
                 "writes": [
-                    "sampleapp/getSpeed/response",
-                    "sampleapp/currentSpeed"
+                    "seatadjuster/setPosition/response",
+                    "seatadjuster/currentPosition"
                 ]
             }
         }
