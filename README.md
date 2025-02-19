@@ -1,4 +1,9 @@
-# Vehicle App C++ Template
+# Vehicle App C++ Template UX
+
+> [!CAUTION]
+> This repository is **deprecated**: It had a timewise limited purpose.
+> It is not maintained any longer and therfore out of date with respect to latest fixes and improvements!
+> **Please don't use it any longer!**
 
 ![Template CI Workflow](https://github.com/eclipse-velocitas/vehicle-app-cpp-template/actions/workflows/ci.yml/badge.svg)
 [![License: Apache](https://img.shields.io/badge/License-Apache-yellow.svg)](http://www.apache.org/licenses/LICENSE-2.0)
